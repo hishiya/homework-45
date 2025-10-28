@@ -1,16 +1,64 @@
-# React + Vite
+# Проєкт: Лічильник на React з Redux Toolkit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Це навчальний проєкт, створений на React + Vite, що демонструє основи роботи з **Redux Toolkit** для керування глобальним станом.
 
-Currently, two official plugins are available:
+Замість локального стану (`useState`) додаток використовує Redux store для зберігання та оновлення поточного значення лічильника.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Опис реалізації
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Проєкт ілюструє ключові концепції Redux Toolkit:
 
-## Expanding the ESLint configuration
+1.  **`createSlice` (counterSlice.js):** Створює "зріз" стану для лічильника. Він автоматично генерує `actions` ( `increment`, `decrement`) та `reducer` на основі наданих функцій.
+2.  **`configureStore` (store.js):** Створює та налаштовує Redux store, комбінуючи всі `reducer` (у цьому випадку, лише `counterReducer`).
+3.  **`Provider` (main.jsx):** "Огортає" весь додаток, роблячи Redux store доступним для будь-якого компонента.
+4.  **Хуки `react-redux` (NumberCounter.jsx):**
+    * `useSelector`: "Читає" дані ( `state.counter.value`) з Redux store.
+    * `useDispatch`: Отримує функцію `dispatch` для відправки `actions` ( `increment()` або `decrement()`) до store.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Стек технологій
+
+* **React**
+* **Vite**
+* **@reduxjs/toolkit**
+* **react-redux**
+
+---
+
+## Встановлення та запуск
+
+1.  **Клонуйте репозиторій:**
+    ```bash
+    # Замініть [URL] на посилання вашого репозиторію
+    git clone [URL-ВАШОГО-РЕПОЗИТОРІЮ]
+    ```
+
+2.  **Перейдіть до каталогу проєкту:**
+    ```bash
+    # Назва папки з вашого завдання
+    cd my-redux-app
+    ```
+
+3.  **Встановіть базові залежності:**
+    ```bash
+    npm install
+    ```
+
+4.  **Встановіть Redux Toolkit та React Redux:**
+    ```bash
+    npm install @reduxjs/toolkit react-redux
+    ```
+
+5.  **Запустіть проєкт у режимі розробки:**
+    ```bash
+    npm run dev
+    ```
+
+    Проєкт буде доступний за адресою `http://localhost:5173/` (або іншим портом, вказаним у терміналі).
+
+---
+
+## Демо-версія
+
+Ви можете переглянути живу (live) демо-версію проєкту, розгорнуту на Vercel
