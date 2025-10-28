@@ -1,0 +1,17 @@
+body {
+  background-color: #242424;
+}
+
+h1, h2, p {
+  color: white;
+}
+
+.header-container {
+  text-align: center;
+}
+
+.content {
+  justify-content: center;
+}
+
+
